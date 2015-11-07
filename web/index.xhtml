@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKqzOmKPmRF1qW_PqrHdh5RXCUhnzOPNo"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet"></link>
+        <link href="css/HomeStyles.css" rel="stylesheet"></link>
+        <script type="text/javascript">
+            //<![CDATA[
+        var data = [
+        {'lat':-30.0242309, 'lng':-51.2027522, 'qtd':30, 'raio':2.5, 'nome':'Tomas Bar'},
+        {'lat':-30.0472355, 'lng':-51.2056313, 'qtd':60, 'raio':6, 'nome':'Stutigrada'},
+        {'lat':-30.041789, 'lng':-51.2208116, 'qtd':50, 'raio':6, 'nome':'Opiniao'},
+        {'lat':-30.0412731, 'lng':-51.2250391, 'qtd':35, 'raio':3, 'nome':'Preto Zé'}];
+        console.log(data);
+        function initialize() {
+          var mapProp = {
+            center:{lat: -30.02, lng: -51.202},
+            zoom:12,
+            mapTypeId:google.maps.MapTypeId.ROADMAP,
+            scrollwheel: false
+            
+          };
+          var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+          	for(var y = 0; y< data.length; y++){
+		var randomGeoPoints = generateRandomPoints(data[y]);
+		for(var i = 0; i< randomGeoPoints.length; i++)
+		{
+			var marker = new google.maps.Marker({
+			map: map,
+			position: randomGeoPoints[i],
+			title: data[y].nome
+			});
+			if (i % 2 == 0) {
+                            marker.setIcon('./img/dancing-a.png');
+			}
+			else
+			{
+                            marker.setIcon('./img/dancing-r.png');
+			}
+		}
+            }
+        }
+        
+        google.maps.event.addDomListener(window, 'load', initialize);
+        
+        //]]>
+        </script>
+    </h:head>
+    <h:body>
+         <h:form>
+
+                <div id="googleMap" style="width:100%;height:450px;"></div>
+                      <div class="input-group" style="position: absolute; top: 50px; left: 5%; width:400px;text-align:center;margin:0 auto; z-index: 999;">
+                      <input class="form-control input-lg" title="Don't worry. We hate spam, and will not share your email with anyone." placeholder="Nome da Festa" type="text"></input>
+                    <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">Pesquisar</button></span>
+                    </div>
+
+
+                <div class="container">
+
+                        <hr>
+
+                        <div class="row">
+                        <div class="col-md-4">
+                          <div class="panel panel-default">
+                            <div class="panel-heading"><h3>Hello.</h3></div>
+                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+                            Aliquam in felis sit amet augue.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                                <div class="panel panel-default">
+                            <div class="panel-heading"><h3>Hello.</h3></div>
+                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+                            Aliquam in felis sit amet augue.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                                <div class="panel panel-default">
+                            <div class="panel-heading"><h3>Hello.</h3></div>
+                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+                            Aliquam in felis sit amet augue.
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                        <div class="row">
+                        <div class="col-lg-12">
+                            
+                            <h:commandButton value="login" action="login"></h:commandButton>
+                          <p class="pull-right"><a href="http://www.bootply.com">Template from Bootply</a> &nbsp; ©Copyright 2013 ACME<sup>TM</sup> Brand.</p>
+
+                        </div>
+                        </div></hr>
+                </div>
+         </h:form>
+
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+                <script src="js/CriaPessoalRandon.js"></script>
+
+    </h:body>
+</html>
+
