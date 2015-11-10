@@ -27,6 +27,7 @@ public class EventoDB {
     
     public void salvarEvento(Evento evento)
     {
+        System.out.println(evento.toString());
         em.getTransaction().begin();
         em.merge(evento);
         em.getTransaction().commit();

@@ -36,4 +36,9 @@ public class EstabelecimentoDB {
         Query q = em.createQuery("Select e from Estabelecimento e");
         return q.getResultList();
     } 
+    
+    public Estabelecimento retornaEstabeleciemnto(int id)
+    {
+        return null;
+    }
 }

@@ -19,47 +19,48 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean
 @RequestScoped
 public class EventoMB {
-    
+
     public Evento evento;
     public EventoNeg neg;
-    
+
     public Evento getEvento() {
         return evento;
     }
-    
+
     public void setEvento(Evento evento) {
         this.evento = evento;
     }
-    
+
     public EventoMB() {
         evento = new Evento();
         neg = new EventoNeg();
     }
-    
-    public void salvar() {
-        System.out.println(">>>>>> "+evento.toString());
+
+    public String salvar() {
         Date d = new Date();
         evento.setDataHoraInicial(d);
         evento.setDataHoraFinal(d);
-        System.out.println(">>>>>> "+evento.toString());
-        
         neg.salvar(evento);
+        
+        return "ListarEvento";
     }
-    
-    public List<Evento> listar()
-    {
+
+    public List<Evento> listar() {
         return neg.listarEvento();
     }
-    
-    public void editar(Evento evento)
-    {
+
+    public void editar(Evento evento) {
+        System.out.println(evento.toString());
         this.evento = evento;
     }
-    
-    public String excluir()
-    {
-        System.out.println(evento.getIdEvento());
-        neg.excluir(evento);
+
+    public String excluir() {
+        try {
+            neg.excluir(evento);
+            return "ListarEvento";
+        } catch (Exception e) {
+
+        }
         return null;
     }
 }

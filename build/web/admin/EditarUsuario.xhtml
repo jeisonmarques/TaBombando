@@ -5,6 +5,7 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <ui:define name="content">
+    <h:inputHidden value="#{usuarioMB.usuario.idUsuario}" />
     <br/>Usuario:<h:inputText value="#{usuarioMB.usuario.nome}" class="form-control"/>
     <br/>Senha:<h:inputText value="#{usuarioMB.senha}" class="form-control"/>
     <br/>Repetir Senha:<h:inputText value="#{usuarioMB.reSenha}" class="form-control"/>

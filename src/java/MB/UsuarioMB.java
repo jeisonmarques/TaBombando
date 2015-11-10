@@ -47,7 +47,7 @@ public class UsuarioMB {
         this.usuario = usuario;
     }
         
-    public void salvar()
+    public String salvar()
     {
         if(senha.contentEquals(reSenha))
         {
@@ -55,6 +55,7 @@ public class UsuarioMB {
             usuario.setSenha(senha);
             neg.salvar(usuario);
         }
+        return "ListarUsuario";
     }
     
     public UsuarioMB() {

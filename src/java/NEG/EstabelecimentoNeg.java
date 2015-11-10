@@ -31,4 +31,11 @@ public class EstabelecimentoNeg {
     {
         return db.retornaEstabelecimentos();
     }
+    
+    public Estabelecimento retornaEstabelecimento(int id)
+    {
+        
+        
+        return null;
+    }
 }

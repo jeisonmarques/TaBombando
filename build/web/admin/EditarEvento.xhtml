@@ -6,7 +6,7 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="content">
-
+        <h:inputHidden value="#{eventoMB.evento.idEvento}" />
         <h:selectOneMenu id="estabelecimento" label="Estabelecimento" class="form-control" 
                          value="#{eventoMB.evento.idEstabelecimento.idEstabelecimento}">
             <f:selectItem itemLabel="Selecione" />

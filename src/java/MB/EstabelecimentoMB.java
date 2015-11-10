@@ -42,13 +42,11 @@ public class EstabelecimentoMB {
     public String salvarEstabelecimento()
     {  
         neg.salvar(estab);
-        
-        return  null;
+        return "ListarEstabelecimento";
     }
     
     public List<Estabelecimento> listar() {
         List<Estabelecimento> lista = neg.listarEstabelecimento();
-        //System.out.println(">>>>> " + lista);
        return lista;
     }
     
