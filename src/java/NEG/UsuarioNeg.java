@@ -32,4 +32,9 @@ public class UsuarioNeg {
         return db.retornaUsuarios();
     }
     
+    public boolean logar()
+    {
+        return true;
+    }
+    
 }
