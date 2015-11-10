@@ -22,8 +22,7 @@ public class EstabelecimentoMB {
     /**
      * Creates a new instance of EstabelecimentoMB
      */
-    private EstabelecimentoNeg neg;
-        
+    private EstabelecimentoNeg neg;       
     private Estabelecimento estab;
 
     public Estabelecimento getEstab() {
@@ -37,6 +36,7 @@ public class EstabelecimentoMB {
     public EstabelecimentoMB() {
         estab = new Estabelecimento();
         neg = new EstabelecimentoNeg();
+        System.out.println(neg.retornaEstabelecimento(10).toString());
     }
  
     public String salvarEstabelecimento()

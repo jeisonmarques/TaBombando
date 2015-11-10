@@ -34,8 +34,8 @@ public class EstabelecimentoNeg {
     
     public Estabelecimento retornaEstabelecimento(int id)
     {
-        
-        
-        return null;
+        Estabelecimento estab = new Estabelecimento();
+        estab.setIdEstabelecimento(id);
+        return db.retornaEstabeleciemnto(estab);
     }
 }

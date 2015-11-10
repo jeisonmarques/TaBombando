@@ -37,8 +37,46 @@ public class EstabelecimentoDB {
         return q.getResultList();
     } 
     
-    public Estabelecimento retornaEstabeleciemnto(int id)
+    public Estabelecimento retornaEstabeleciemnto(Estabelecimento estab)
     {
-        return null;
+        
+        StringBuilder sb = new StringBuilder("Select e from Estabelecimento e where 1=1 ");
+
+        if(estab.getIdEstabelecimento() !=null && estab.getIdEstabelecimento()!=0) {
+            sb.append("and e.idEstabelecimento=:c ");
+        }
+        if(estab.getCnpj() !=0) {
+            sb.append("and e.cnpj = :n ");
+        }
+        if(estab.getEndereco()!=null && !"".equals(estab.getEndereco())) {
+            sb.append("and e.endereco like :e ");
+        }
+        if(estab.getFones()!=null && !"".equals(estab.getFones())) {
+            sb.append("and c.telefone like :t ");
+        }
+        if(estab.getNome()!=null && !"".equals(estab.getNome())) {
+            sb.append("and e.nome like :q ");
+        }
+
+        sb.append("order by e.nome");
+        
+        Query qry = em.createQuery(sb.toString());
+        if(estab.getIdEstabelecimento() !=null && estab.getIdEstabelecimento()!=0) {
+            qry.setParameter("c", estab.getIdEstabelecimento());
+        }
+        if(estab.getCnpj() !=0) {
+            qry.setParameter("n", estab.getCnpj());
+        }
+        if(estab.getEndereco()!=null && !"".equals(estab.getEndereco())) {
+            qry.setParameter("e", "%" + estab.getEndereco() + "%");
+        }
+        if(estab.getFones()!=null && !"".equals(estab.getFones())) {
+            qry.setParameter("t", "%" + estab.getFones() + "%");
+        }
+        if(estab.getNome()!=null && !"".equals(estab.getNome())) {
+            qry.setParameter("q", "%" + estab.getFones() + "%");
+        }
+
+        return (Estabelecimento) qry.getSingleResult();
     }
 }
