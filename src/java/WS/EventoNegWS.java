@@ -12,6 +12,7 @@ import javax.jws.WebService;
 import Bean.Evento;
 import java.util.Date;
 import NEG.EstabelecimentoNeg;
+import NEG.EventoNeg;
 
 
 /**
@@ -27,20 +28,31 @@ public class EventoNegWS {
             @WebParam(name = "nome") String nome, 
             @WebParam(name = "descricao") String descricao, 
             @WebParam(name = "dataHoraInicial") Date dataHoraInicial, 
-            @WebParam(name = "dataHoraFinal") Date dataHoraFinal) {
+            @WebParam(name = "dataHoraFinal") Date dataHoraFinal) throws Exception {
         
 
-        EstabelecimentoNeg esn = new EstabelecimentoNeg();
-        
-        
+        EstabelecimentoNeg esNeg = new EstabelecimentoNeg();
+        EventoNeg evNeg = new EventoNeg();
         Evento ev = new Evento();
+        
+        Estabelecimento es = esNeg.retornaEstabelecimento(idEstabelecimento);
+        if(es == (null)){
+            throw new Exception("Nao foi encontrado estabelecimento com este ID.");
+        }else if(es.getCnpj() != cnpj){
+                throw new Exception("CNPJ nao pertence ao estabelecimento informado.");
+        }
+        
+        ev.setIdEstabelecimento(es);
         ev.setDescricao(descricao);
         ev.setNome(nome);
         ev.setDataHoraInicial(dataHoraInicial);
         ev.setDataHoraFinal(dataHoraFinal);
         
-        
-        
+        try {
+            evNeg.salvar(ev);
+        } catch (Exception e) {
+            throw new Exception("Houve algum erro ao tentar salvar o Evento.");
+        }        
         return true;
     }
     
