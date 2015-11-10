@@ -13,6 +13,7 @@ import Bean.Evento;
 import java.util.Date;
 import NEG.EstabelecimentoNeg;
 import NEG.EventoNeg;
+import javax.jws.WebMethod;
 
 
 /**
@@ -20,7 +21,7 @@ import NEG.EventoNeg;
  * @author thiago
  */
 @WebService
-public class EventoNegWS {
+public class EventoWS {
 
     public boolean insereEvento(
             @WebParam(name = "idEstabelecimento") int idEstabelecimento, 
@@ -56,12 +57,14 @@ public class EventoNegWS {
         return true;
     }
     
+    @WebMethod(exclude = true)
     public ArrayList<Evento> listaEventosFuturos(
              @WebParam(name = "idEstabelecimento") int idEstabelecimento, 
              @WebParam(name = "cnpj") long cnpj){
         return null;
     }
     
+        @WebMethod(exclude = true)
         public ArrayList<Evento> listaHistoricoEventos(
                  @WebParam(name = "idEstabelecimento") int idEstabelecimento, 
                  @WebParam(name = "cnpj") long cnpj){
