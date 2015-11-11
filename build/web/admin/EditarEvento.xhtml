@@ -8,16 +8,21 @@
     <ui:define name="content">
         <h:inputHidden value="#{eventoMB.evento.idEvento}" />
         <h:selectOneMenu id="estabelecimento" label="Estabelecimento" class="form-control" 
-                         value="#{eventoMB.evento.idEstabelecimento.idEstabelecimento}">
+                         value="#{eventoMB.evento.idEstabelecimento.idEstabelecimento}" required="true">
             <f:selectItem itemLabel="Selecione" />
             <f:selectItems value="#{estabelecimentoMB.listar()}" 
                            var="reg" itemLabel="#{reg.nome}" 
                            itemValue="#{reg.idEstabelecimento}"  />
         </h:selectOneMenu>
-        Nome:<h:inputText value="#{eventoMB.evento.nome}" class="form-control"/>
-        Descrição:<h:inputTextarea value="#{eventoMB.evento.descricao}" class="form-control" rows="3"/>
-        Data e Hora Inicial:<h:inputText class="form-control" />
-        Data e Hora Final:<h:inputText class="form-control"/>
+        Nome:<h:inputText value="#{eventoMB.evento.nome}" class="form-control" required="true" size="40" label="Nome do Evento"/>
+        Descrição:<h:inputTextarea value="#{eventoMB.evento.descricao}" class="form-control" rows="3" required="true" label="Descrição do Evento"/>
+
+        Data e Hora Inicial:<h:inputText class="form-control" value="#{eventoMB.evento.dataHoraInicial}" label="Data de Inicio do Evento" required="true">
+            <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
+        </h:inputText>
+        Data e Hora Final:<h:inputText class="form-control" value="#{eventoMB.evento.dataHoraFinal}" label="Data de Final do Evento" required="true">
+            <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
+        </h:inputText>
         
         <h:commandButton value="Salvar" action="#{eventoMB.salvar()}" class="btn btn-default" />
         <h:commandButton value="Excluir" action="#{eventoMB.excluir()}" class="btn btn-default" onclick="if(!confirm('Deseja mesmo excluir?')) {return false;}" />

@@ -6,9 +6,9 @@
 
     <ui:define name="content">
     <h:inputHidden value="#{usuarioMB.usuario.idUsuario}" />
-    Usuario:<h:inputText value="#{usuarioMB.usuario.nome}" class="form-control"/>
-    Senha:<h:inputText value="#{usuarioMB.senha}" class="form-control"/>
-    Repetir Senha:<h:inputText value="#{usuarioMB.reSenha}" class="form-control"/>
+    Usuario:<h:inputText value="#{usuarioMB.usuario.nome}" class="form-control" required="true" label="Usuario"/>
+        Senha:<h:inputText value="#{usuarioMB.senha}" class="form-control" required="true" label="Senha"/>
+        Repetir Senha:<h:inputText value="#{usuarioMB.reSenha}" class="form-control" required="true" label="ReSenha"/>
     <h:commandButton value="Salvar" action="#{usuarioMB.salvar()}" class="btn btn-default"/>
     <h:commandButton value="Cancelar" action="ListarUsuario" class="btn btn-default" immediate="true" />
     </ui:define>

@@ -14,13 +14,13 @@
                            var="reg" itemLabel="#{reg.nome}" 
                            itemValue="#{reg.idEstabelecimento}"  />
         </h:selectOneMenu>
-        Nome:<h:inputText value="#{eventoMB.evento.nome}" class="form-control" required="true" size="40"/>
-        Descrição:<h:inputTextarea value="#{eventoMB.evento.descricao}" class="form-control" rows="3" required="true"/>
+        Nome:<h:inputText value="#{eventoMB.evento.nome}" class="form-control" required="true" size="40" label="Nome do Evento"/>
+        Descrição:<h:inputTextarea value="#{eventoMB.evento.descricao}" class="form-control" rows="3" required="true" label="Descrição do Evento"/>
 
-        Data e Hora Inicial:<h:inputText class="form-control" value="#{eventoMB.evento.dataHoraInicial}">
+        Data e Hora Inicial:<h:inputText class="form-control" value="#{eventoMB.evento.dataHoraInicial}" label="Data de Inicio do Evento" required="true">
             <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
         </h:inputText>
-        Data e Hora Final:<h:inputText class="form-control" value="#{eventoMB.evento.dataHoraFinal}">
+        Data e Hora Final:<h:inputText class="form-control" value="#{eventoMB.evento.dataHoraFinal}" label="Data de Final do Evento" required="true">
             <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
         </h:inputText>
         
