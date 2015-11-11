@@ -38,8 +38,8 @@ public class EventoMB {
 
     public String salvar() {
         Date d = new Date();
-        evento.setDataHoraInicial(d);
-        evento.setDataHoraFinal(d);
+        //evento.setDataHoraInicial(d);
+        //evento.setDataHoraFinal(d);
         neg.salvar(evento);
         
         return "ListarEvento";
