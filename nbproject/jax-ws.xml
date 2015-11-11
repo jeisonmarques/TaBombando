@@ -2,7 +2,7 @@
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
     <service name="EventoWS">
-      <implementation-class>WS.EventoWS</implementation-class>
+      <implementation-class>com.senac.WS.EventoWS</implementation-class>
     </service>
   </services>
   <clients/>
