@@ -35,11 +35,11 @@ public class EstabelecimentoDB {
     {
         Query q = em.createQuery("Select e from Estabelecimento e");
         return q.getResultList();
+        
     } 
     
     public Estabelecimento retornaEstabeleciemnto(Estabelecimento estab)
     {
-        
         StringBuilder sb = new StringBuilder("Select e from Estabelecimento e where 1=1 ");
 
         if(estab.getIdEstabelecimento() !=null && estab.getIdEstabelecimento()!=0) {

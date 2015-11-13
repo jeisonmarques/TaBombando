@@ -23,7 +23,3 @@ function generateRandomPoint(data) {
 
   return {'lat': y+y0, 'lng': xp+x0};
 }
-
-$(function() {
-    $( "#datepicker" ).datepicker();
-});
