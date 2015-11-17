@@ -6,6 +6,7 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+    <ui:define name="top">Novo Evento</ui:define>
     <ui:define name="content">
         <h:selectOneMenu id="estabelecimento" label="Estabelecimento" class="form-control" 
                          value="#{eventoMB.evento.idEstabelecimento.idEstabelecimento}" required="true">
@@ -23,7 +24,7 @@
         Data e Hora Final:<h:inputText class="form-control" value="#{eventoMB.evento.dataHoraFinal}" label="Data de Final do Evento" required="true">
             <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
         </h:inputText>
-        
+
         <h:commandButton value="Salvar" action="#{eventoMB.salvar()}" class="btn btn-default" />
     </ui:define>
 </ui:composition>

@@ -13,7 +13,7 @@ import javax.faces.context.FacesContext;
  * @author jeisonmarques
  */
 public class Mensagem {
-    
+
     public static final void add(String mensagem) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(mensagem));
     }
@@ -21,5 +21,5 @@ public class Mensagem {
     public static final void error(String mensagem) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, mensagem, ""));
     }
-    
+
 }

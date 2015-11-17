@@ -14,26 +14,22 @@ import java.util.List;
  * @author jeisonmarques
  */
 public class EventoNeg {
-    
+
     private EventoDB db;
-    
-    public EventoNeg()
-    {
+
+    public EventoNeg() {
         db = new EventoDB();
     }
-    
-    public void salvar(Evento evento)
-    {
+
+    public void salvar(Evento evento) {
         db.salvarEvento(evento);
     }
-    
-    public List<Evento> listarEvento()
-    {
+
+    public List<Evento> listarEvento() {
         return db.retornaEventos();
     }
-    
-    public void excluir(Evento evento)
-    {
+
+    public void excluir(Evento evento) {
         db.excluir(evento);
     }
 }

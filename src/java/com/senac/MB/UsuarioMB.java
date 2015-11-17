@@ -48,30 +48,26 @@ public class UsuarioMB {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-        
-    public String salvar()
-    {
-        if(senha.contentEquals(reSenha))
-        {
+
+    public String salvar() {
+        if (senha.contentEquals(reSenha)) {
             usuario.setSenha(senha);
             neg.salvar(usuario);
             Mensagem.add("Operação executada com sucesso!");
         }
         return "ListarUsuario";
     }
-    
+
     public UsuarioMB() {
         usuario = new Usuario();
         neg = new UsuarioNeg();
     }
-    
-    public List<Usuario> listar()
-    {
-        return neg.listarUsuario(); 
+
+    public List<Usuario> listar() {
+        return neg.listarUsuario();
     }
-    
-    public void editar(Usuario user)
-    {
+
+    public void editar(Usuario user) {
         this.usuario = user;
     }
 }

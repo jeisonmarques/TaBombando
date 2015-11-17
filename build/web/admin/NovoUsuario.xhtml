@@ -4,11 +4,12 @@
                 template="./Master.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
 
+    <ui:define name="top">Novo Usuario</ui:define>
     <ui:define name="content">
         Usuario:<h:inputText value="#{usuarioMB.usuario.nome}" class="form-control" required="true" label="Usuario"/>
         Senha:<h:inputText value="#{usuarioMB.senha}" class="form-control" required="true" label="Senha"/>
         Repetir Senha:<h:inputText value="#{usuarioMB.reSenha}" class="form-control" required="true" label="ReSenha"/>
-    <h:commandButton value="Salvar" action="#{usuarioMB.salvar()}" class="btn btn-default"/>
+        <h:commandButton value="Salvar" action="#{usuarioMB.salvar()}" class="btn btn-default"/>
     </ui:define>
 
 </ui:composition>

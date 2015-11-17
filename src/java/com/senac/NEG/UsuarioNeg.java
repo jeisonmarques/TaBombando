@@ -8,33 +8,35 @@ package com.senac.NEG;
 import com.senac.Bean.Usuario;
 import com.senac.DB.UsuarioDB;
 import java.util.List;
+import javax.persistence.NoResultException;
 
 /**
  *
  * @author jeisonmarques
  */
 public class UsuarioNeg {
-    
+
     private UsuarioDB db;
-    
-    public UsuarioNeg()
-    {
+
+    public UsuarioNeg() {
         db = new UsuarioDB();
     }
-    
-    public void salvar(Usuario usr)
-    {
+
+    public void salvar(Usuario usr) {
         db.salvarUsuario(usr);
     }
-    
-    public List<Usuario> listarUsuario()
-    {
+
+    public List<Usuario> listarUsuario() {
         return db.retornaUsuarios();
     }
-    
-    public boolean logar()
-    {
-        return true;
+
+    public boolean logar(String usuario, String senha) {
+        try {
+            db.retornaUsuario(usuario, senha);
+            return true;
+        } catch (NoResultException e) {
+            return false;
+        }
     }
-    
+
 }

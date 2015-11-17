@@ -5,7 +5,8 @@ package com.senac.MB;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import com.senac.NEG.UsuarioNeg;
+import com.senac.util.Mensagem;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -18,17 +19,14 @@ import javax.faces.bean.RequestScoped;
 public class LoginMB {
 
     private String login;
-    
     private String senha;
-    
+    private UsuarioNeg neg;
+
     /**
      * Creates a new instance of LoginMB
      */
     public LoginMB() {
-    }
-    
-    public String logar(){
-        return "Home";
+        neg = new UsuarioNeg();
     }
 
     public String getLogin() {
@@ -46,10 +44,14 @@ public class LoginMB {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    public String teste()
-    {
-        return  "admin/Home";
+
+    public String logar() {
+        if (neg.logar(login, senha)) {
+            return "admin/Home";
+        }
+        Mensagem.error("Usuario / Senha Invalido !");
+        this.senha = "";
+        return "";
     }
-    
+
 }

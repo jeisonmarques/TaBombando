@@ -15,7 +15,6 @@ import com.senac.NEG.EstabelecimentoNeg;
 import com.senac.NEG.EventoNeg;
 import javax.jws.WebMethod;
 
-
 /**
  *
  * @author thiago
@@ -24,52 +23,50 @@ import javax.jws.WebMethod;
 public class EventoWS {
 
     public boolean insereEvento(
-            @WebParam(name = "idEstabelecimento") int idEstabelecimento, 
-            @WebParam(name = "cnpj") long cnpj, 
-            @WebParam(name = "nome") String nome, 
-            @WebParam(name = "descricao") String descricao, 
-            @WebParam(name = "dataHoraInicial") Date dataHoraInicial, 
+            @WebParam(name = "idEstabelecimento") int idEstabelecimento,
+            @WebParam(name = "cnpj") long cnpj,
+            @WebParam(name = "nome") String nome,
+            @WebParam(name = "descricao") String descricao,
+            @WebParam(name = "dataHoraInicial") Date dataHoraInicial,
             @WebParam(name = "dataHoraFinal") Date dataHoraFinal) throws Exception {
-        
 
         EstabelecimentoNeg esNeg = new EstabelecimentoNeg();
         EventoNeg evNeg = new EventoNeg();
         Evento ev = new Evento();
-        
+
         Estabelecimento es = esNeg.retornaEstabelecimento(idEstabelecimento);
-        if(es == (null)){
+        if (es == (null)) {
             throw new Exception("Nao foi encontrado estabelecimento com este ID.");
-        }else if(es.getCnpj() != cnpj){
-                throw new Exception("CNPJ nao pertence ao estabelecimento informado.");
+        } else if (es.getCnpj() != cnpj) {
+            throw new Exception("CNPJ nao pertence ao estabelecimento informado.");
         }
-        
+
         ev.setIdEstabelecimento(es);
         ev.setDescricao(descricao);
         ev.setNome(nome);
         ev.setDataHoraInicial(dataHoraInicial);
         ev.setDataHoraFinal(dataHoraFinal);
-        
+
         try {
             evNeg.salvar(ev);
         } catch (Exception e) {
             throw new Exception("Houve algum erro ao tentar salvar o Evento.");
-        }        
+        }
         return true;
     }
-    
+
     @WebMethod(exclude = true)
     public ArrayList<Evento> listaEventosFuturos(
-             @WebParam(name = "idEstabelecimento") int idEstabelecimento, 
-             @WebParam(name = "cnpj") long cnpj){
+            @WebParam(name = "idEstabelecimento") int idEstabelecimento,
+            @WebParam(name = "cnpj") long cnpj) {
         return null;
     }
-    
-        @WebMethod(exclude = true)
-        public ArrayList<Evento> listaHistoricoEventos(
-                 @WebParam(name = "idEstabelecimento") int idEstabelecimento, 
-                 @WebParam(name = "cnpj") long cnpj){
+
+    @WebMethod(exclude = true)
+    public ArrayList<Evento> listaHistoricoEventos(
+            @WebParam(name = "idEstabelecimento") int idEstabelecimento,
+            @WebParam(name = "cnpj") long cnpj) {
         return null;
     }
-        
-    
+
 }

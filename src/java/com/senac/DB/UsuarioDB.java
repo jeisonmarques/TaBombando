@@ -39,4 +39,15 @@ public class UsuarioDB {
         return q.getResultList();
     }
     
+    public Usuario retornaUsuario(String usuario, String senha)
+    {
+        String strQuery = "Select u from Usuario u where u.nome = :n and u.senha = :s";
+        
+        Query q = em.createQuery(strQuery);
+        q.setParameter("n", usuario);
+        q.setParameter("s", senha);
+        
+        return (Usuario) q.getSingleResult();
+    }
+    
 }

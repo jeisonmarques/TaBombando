@@ -352,3 +352,10 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+.button {
+    background: white url('../img/Add Property-64.png') no-repeat top;
+    width: 32px;   // button width
+    height: 32px;  // button height
+    background-size: contain;
+    border: none;  // hide border of button
+}

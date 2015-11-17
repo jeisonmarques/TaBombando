@@ -5,6 +5,7 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+    <ui:define name="top">Editar Evento</ui:define>
     <ui:define name="content">
         <h:inputHidden value="#{eventoMB.evento.idEvento}" />
         <h:selectOneMenu id="estabelecimento" label="Estabelecimento" class="form-control" 
@@ -23,9 +24,11 @@
         Data e Hora Final:<h:inputText class="form-control" value="#{eventoMB.evento.dataHoraFinal}" label="Data de Final do Evento" required="true">
             <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
         </h:inputText>
-        
+
         <h:commandButton value="Salvar" action="#{eventoMB.salvar()}" class="btn btn-default" />
-        <h:commandButton value="Excluir" action="#{eventoMB.excluir()}" class="btn btn-default" onclick="if(!confirm('Deseja mesmo excluir?')) {return false;}" />
+        <h:commandButton value="Excluir" action="#{eventoMB.excluir()}" class="btn btn-default" onclick="if (!confirm('Deseja mesmo excluir?')) {
+                    return false;
+                }" />
         <h:commandButton value="Cancelar" action="ListarEvento" class="btn btn-default" immediate="true" />
     </ui:define>
 

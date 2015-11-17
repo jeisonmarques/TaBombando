@@ -14,26 +14,22 @@ import java.util.List;
  * @author jeisonmarques
  */
 public class EstabelecimentoNeg {
-    
+
     private EstabelecimentoDB db;
-    
-    public EstabelecimentoNeg()
-    {
+
+    public EstabelecimentoNeg() {
         db = new EstabelecimentoDB();
     }
-    
-    public void salvar(Estabelecimento estab)
-    {
+
+    public void salvar(Estabelecimento estab) {
         db.salvarEstabelecimento(estab);
     }
-    
-    public List<Estabelecimento> listarEstabelecimento()
-    {
+
+    public List<Estabelecimento> listarEstabelecimento() {
         return db.retornaEstabelecimentos();
     }
-    
-    public Estabelecimento retornaEstabelecimento(int id)
-    {
+
+    public Estabelecimento retornaEstabelecimento(int id) {
         Estabelecimento estab = new Estabelecimento();
         estab.setIdEstabelecimento(id);
         return db.retornaEstabeleciemnto(estab);
